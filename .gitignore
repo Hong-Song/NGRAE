@@ -1,0 +1,13 @@
+__history/
+common\DB/__history/
+NGDBUtils/__history/
+bin/
+dcu/
+*.dcu
+*.local
+*.identcache
+*.exe
+*.rsm
+*.map
+*.drc
+*.zip
