@@ -2,7 +2,7 @@ object frmConnectDB: TfrmConnectDB
   Left = 0
   Top = 0
   Caption = 'Connect Database'
-  ClientHeight = 122
+  ClientHeight = 104
   ClientWidth = 463
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -22,16 +22,6 @@ object frmConnectDB: TfrmConnectDB
     Alignment = taRightJustify
     AutoSize = False
     Caption = 'Server Name'
-    Transparent = True
-  end
-  object lblDBName: TLabel
-    Left = 3
-    Top = 81
-    Width = 98
-    Height = 13
-    Alignment = taRightJustify
-    AutoSize = False
-    Caption = 'Database Name'
     Transparent = True
   end
   object lblConnectUsing: TLabel
@@ -214,15 +204,6 @@ object frmConnectDB: TfrmConnectDB
     PasswordChar = '*'
     TabOrder = 4
   end
-  object DBName: TComboBox
-    Left = 113
-    Top = 78
-    Width = 226
-    Height = 21
-    DropDownCount = 10
-    Sorted = True
-    TabOrder = 5
-  end
   object btnConnectDB: TBitBtn
     Left = 345
     Top = 76
@@ -245,6 +226,33 @@ object frmConnectDB: TfrmConnectDB
       55555575FFFF7755555555570000755555555557777775555555}
     NumGlyphs = 2
     ParentDoubleBuffered = False
+    TabOrder = 5
+  end
+  object pnDBName: TPanel
+    Left = 6
+    Top = 76
+    Width = 336
+    Height = 28
+    BevelOuter = bvNone
     TabOrder = 6
+    object lblDBName: TLabel
+      Left = 0
+      Top = 5
+      Width = 98
+      Height = 13
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'Database Name'
+      Transparent = True
+    end
+    object DBName: TComboBox
+      Left = 106
+      Top = 4
+      Width = 226
+      Height = 21
+      DropDownCount = 10
+      Sorted = True
+      TabOrder = 0
+    end
   end
 end

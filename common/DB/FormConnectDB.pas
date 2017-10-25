@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Buttons;
+  Dialogs, StdCtrls, Buttons, ExtCtrls;
 
 type
   TfrmConnectDB = class(TForm)
@@ -22,14 +22,13 @@ type
     AdminPassword: TEdit;
     DBName: TComboBox;
     btnConnectDB: TBitBtn;
+    pnDBName: TPanel;
   private
     { Private declarations }
   public
     { Public declarations }
   end;
 
-var
-  frmConnectDB: TfrmConnectDB;
 
 implementation
 

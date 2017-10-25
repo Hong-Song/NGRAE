@@ -4,23 +4,27 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Buttons, ExtCtrls, ComCtrls;
+  Dialogs, Buttons, ExtCtrls, ComCtrls, ActnList, ImgList;
 
 type
   TFormMain = class(TForm)
     pnLeft: TPanel;
-    pnLogo: TPanel;
     SpeedButton1: TSpeedButton;
     SpeedButton2: TSpeedButton;
     SpeedButton3: TSpeedButton;
     SpeedButton4: TSpeedButton;
-    pnRight: TPanel;
-    pnDBConn: TPanel;
-    PageControl1: TPageControl;
-    TabSheet1: TTabSheet;
-    TabSheet2: TTabSheet;
-    TabSheet3: TTabSheet;
-    TabSheet4: TTabSheet;
+    ImageListMenu: TImageList;
+    ActionList1: TActionList;
+    aCreateDropDB: TAction;
+    aUpgradeDB: TAction;
+    aSecureDB: TAction;
+    aBackupRestoreDB: TAction;
+    imgMain: TImage;
+    procedure aCreateDropDBUpdate(Sender: TObject);
+    procedure aCreateDropDBExecute(Sender: TObject);
+    procedure aUpgradeDBExecute(Sender: TObject);
+    procedure aSecureDBExecute(Sender: TObject);
+    procedure aBackupRestoreDBExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -33,5 +37,30 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TFormMain.aCreateDropDBUpdate(Sender: TObject);
+begin
+  TAction(Sender).Enabled := True;
+end;
+
+procedure TFormMain.aBackupRestoreDBExecute(Sender: TObject);
+begin
+//
+end;
+
+procedure TFormMain.aCreateDropDBExecute(Sender: TObject);
+begin
+//
+end;
+
+procedure TFormMain.aSecureDBExecute(Sender: TObject);
+begin
+//
+end;
+
+procedure TFormMain.aUpgradeDBExecute(Sender: TObject);
+begin
+//
+end;
 
 end.
