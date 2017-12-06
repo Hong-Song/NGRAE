@@ -14,6 +14,8 @@ const
 type
   EGlobalException = class(Exception);
 
+  TDBConnectType = (dctFD, dctADO);
+
   ICommonConnectionProperties = Interface
     ['{CE6C8655-AF96-49E0-BDCF-8F8124EEE200}']
 
@@ -230,7 +232,7 @@ type
   function EncryptPassword(s: string): string;
   function DecryptPassword(s: string): string;
 
-  procedure CreateGlobalDataProvider(ClassIdent : string);
+//  procedure CreateGlobalDataProvider(ClassIdent : string);
   procedure ReleaseGlobalDataProvider;
   function NewGUID: string;
   function UpdateStatusToInt(Value: TUpdateStatus): Integer;
@@ -238,7 +240,8 @@ type
 
 var
   // GlobalDataProvider
-  cdpGlobal : IFDMemTableProvider;
+  cdpFDGlobal : IFDMemTableProvider;
+  cdpADOGlobal : IClientDataSetProvider;
 
 
 ResourceString
@@ -260,20 +263,28 @@ begin
 end;
 
 
-procedure CreateGlobalDataProvider(ClassIdent : string);
-begin
-  ReleaseGlobalDataProvider;
-  cdpGlobal := ServiceLocator.GetService<IFDMemTableProvider>(ClassIdent);
-end;
+//procedure CreateGlobalDataProvider(ClassIdent : string);
+//begin
+//  ReleaseGlobalDataProvider;
+//  cdpFDGlobal := ServiceLocator.GetService<IFDMemTableProvider>(ClassIdent);
+//end;
 
 procedure ReleaseGlobalDataProvider;
 begin
-  if Assigned(cdpGlobal) then
+  if Assigned(cdpFDGlobal) then
   begin
     {$IFNDEF AUTOREFCOUNT}
-    GlobalContainer.Release(cdpGlobal);
+    GlobalContainer.Release(cdpFDGlobal);
     {$ENDIF}
-    cdpGlobal := nil;
+    cdpFDGlobal := nil;
+  end;
+
+  if Assigned(cdpADOGlobal) then
+  begin
+    {$IFNDEF AUTOREFCOUNT}
+    GlobalContainer.Release(cdpADOGlobal);
+    {$ENDIF}
+    cdpADOGlobal := nil;
   end;
 end;
 
@@ -302,7 +313,8 @@ begin
 end;
 
 initialization
-  cdpGlobal := nil;
+  cdpFDGlobal := nil;
+  cdpADOGlobal := nil;
 
 finalization
   ReleaseGlobalDataProvider;

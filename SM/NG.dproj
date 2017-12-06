@@ -113,6 +113,11 @@
         <DCCReference Include="..\Common\CommonDBUtils\FDConnectionHelper.pas"/>
         <DCCReference Include="..\Common\CommonDBUtils\ParamsHelper.pas"/>
         <DCCReference Include="..\Common\CommonDBUtils\CommonDataProvider.ADO.pas"/>
+        <DCCReference Include="FrameConnectDB.pas">
+            <Form>DBConnectFrame</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

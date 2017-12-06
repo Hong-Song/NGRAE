@@ -8,7 +8,8 @@ uses
   CommonDataProvider.FD in '..\Common\CommonDBUtils\CommonDataProvider.FD.pas',
   FDConnectionHelper in '..\Common\CommonDBUtils\FDConnectionHelper.pas',
   ParamsHelper in '..\Common\CommonDBUtils\ParamsHelper.pas',
-  CommonDataProvider.ADO in '..\Common\CommonDBUtils\CommonDataProvider.ADO.pas';
+  CommonDataProvider.ADO in '..\Common\CommonDBUtils\CommonDataProvider.ADO.pas',
+  FrameConnectDB in 'FrameConnectDB.pas' {DBConnectFrame: TFrame};
 
 {$R *.res}
 

@@ -2,7 +2,7 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Form1'
-  ClientHeight = 299
+  ClientHeight = 495
   ClientWidth = 635
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -11,17 +11,35 @@ object Form1: TForm1
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
-  object FDMemTable1: TFDMemTable
-    FetchOptions.AssignedValues = [evMode]
-    FetchOptions.Mode = fmAll
-    ResourceOptions.AssignedValues = [rvSilentMode]
-    ResourceOptions.SilentMode = True
-    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
-    UpdateOptions.CheckRequired = False
-    UpdateOptions.AutoCommitUpdates = True
-    Left = 288
-    Top = 88
+  object pnDB: TPanel
+    Left = 8
+    Top = 8
+    Width = 569
+    Height = 161
+    TabOrder = 0
+  end
+  object Button1: TButton
+    Left = 248
+    Top = 184
+    Width = 75
+    Height = 25
+    Caption = 'Button1'
+    TabOrder = 1
+  end
+  object rgConnectType: TRadioGroup
+    Left = 24
+    Top = 175
+    Width = 185
+    Height = 105
+    Caption = 'Connection Type'
+    ItemIndex = 0
+    Items.Strings = (
+      'ADOConnection'
+      'FDConnection')
+    TabOrder = 2
+    OnClick = rgConnectTypeClick
   end
 end
