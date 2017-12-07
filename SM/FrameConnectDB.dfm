@@ -42,7 +42,6 @@ object DBConnectFrame: TDBConnectFrame
     Alignment = taRightJustify
     AutoSize = False
     Caption = 'Login Name'
-    Enabled = False
     Transparent = True
   end
   object lblPassword: TLabel
@@ -53,7 +52,6 @@ object DBConnectFrame: TDBConnectFrame
     Alignment = taRightJustify
     AutoSize = False
     Caption = 'Password'
-    Enabled = False
     Transparent = True
   end
   object btnSQLLoadConnection: TSpeedButton
@@ -168,7 +166,7 @@ object DBConnectFrame: TDBConnectFrame
     DropDownCount = 10
     Sorted = True
     TabOrder = 0
-    Text = 'NRDP\SQLEXPRESS,1433'
+    Text = '10.0.0.55\SQLEXPRESS,1433'
   end
   object radWindowsAuthentication: TRadioButton
     Left = 113
@@ -193,7 +191,6 @@ object DBConnectFrame: TDBConnectFrame
     Top = 50
     Width = 127
     Height = 21
-    Enabled = False
     TabOrder = 3
     Text = 'sa'
   end
@@ -202,7 +199,6 @@ object DBConnectFrame: TDBConnectFrame
     Top = 50
     Width = 126
     Height = 21
-    Enabled = False
     PasswordChar = '*'
     TabOrder = 4
     Text = 'Server2k'

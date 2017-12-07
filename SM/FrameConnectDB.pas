@@ -45,11 +45,13 @@ procedure TDBConnectFrame.btnSQLServerConnectClick(Sender: TObject);
 begin
   if FDBConnectType = dctFD then
   begin
-
+    cdpFDGlobal.SetConnectionString(dtoSQLServer, HostName.Text, DBName.Text, '', AdminUserName.Text, AdminPassword.Text, radWindowsAuthentication.Checked);
+    cdpFDGlobal.Connected := True;
   end
   else
   begin
-
+    cdpADOGlobal.SetConnectionString(dtoSQLServer, HostName.Text, DBName.Text, '', AdminUserName.Text, AdminPassword.Text, radWindowsAuthentication.Checked);
+    cdpADOGlobal.Connected := True;
   end;
 end;
 

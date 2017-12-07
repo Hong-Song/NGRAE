@@ -907,8 +907,8 @@ begin
   FDBConnection.ConnectionProperties.ServerName := HostName;
   FDBConnection.ConnectionProperties.DatabaseName := DatabaseName;
   FDBConnection.ConnectionProperties.PortNumber := PortNumber;
-  FDBConnection.ConnectionProperties.UserName := LoginName;
-  FDBConnection.ConnectionProperties.Password := LoginPassword;
+  FDBConnection.ConnectionProperties.ServerLogin := LoginName;
+  FDBConnection.ConnectionProperties.ServerPassword := LoginPassword;
   FDBConnection.ConnectionProperties.OSAuthentication := OSAuthentication;
   FDBConnection.SetConnectionString;
 end;

@@ -2,8 +2,8 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Form1'
-  ClientHeight = 495
-  ClientWidth = 635
+  ClientHeight = 631
+  ClientWidth = 859
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -12,34 +12,159 @@ object Form1: TForm1
   Font.Style = []
   OldCreateOrder = False
   OnCreate = FormCreate
+  OnResize = FormResize
   PixelsPerInch = 96
   TextHeight = 13
-  object pnDB: TPanel
-    Left = 8
-    Top = 8
-    Width = 569
-    Height = 161
+  object pnLeft: TPanel
+    Left = 0
+    Top = 0
+    Width = 585
+    Height = 631
+    Align = alLeft
     TabOrder = 0
+    ExplicitHeight = 545
+    object pnLeftTop: TPanel
+      Left = 1
+      Top = 1
+      Width = 583
+      Height = 104
+      Align = alTop
+      TabOrder = 0
+      DesignSize = (
+        583
+        104)
+      object btnFDOpen1: TButton
+        Left = 328
+        Top = 0
+        Width = 250
+        Height = 25
+        Anchors = [akTop, akRight]
+        Caption = 'btnFDOpen1'
+        TabOrder = 0
+        OnClick = btnFDOpen1Click
+      end
+      object btnFDLoop: TButton
+        Left = 328
+        Top = 31
+        Width = 250
+        Height = 25
+        Anchors = [akTop, akRight]
+        Caption = 'btnFDLoop'
+        TabOrder = 1
+        OnClick = btnFDLoopClick
+      end
+      object btnFDLoop2: TButton
+        Left = 328
+        Top = 57
+        Width = 250
+        Height = 25
+        Anchors = [akTop, akRight]
+        Caption = 'btnFDLoop2'
+        TabOrder = 2
+        OnClick = btnFDLoopClick
+      end
+    end
+    object DBGrid1: TDBGrid
+      Left = 1
+      Top = 105
+      Width = 583
+      Height = 525
+      Align = alClient
+      DataSource = DataSource1
+      TabOrder = 1
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+    end
   end
-  object Button1: TButton
-    Left = 248
-    Top = 184
-    Width = 75
-    Height = 25
-    Caption = 'Button1'
+  object pnRight: TPanel
+    Left = 585
+    Top = 0
+    Width = 274
+    Height = 631
+    Align = alClient
     TabOrder = 1
+    ExplicitWidth = 415
+    ExplicitHeight = 545
+    object pnRightTop: TPanel
+      Left = 1
+      Top = 1
+      Width = 272
+      Height = 104
+      Align = alTop
+      TabOrder = 0
+      ExplicitWidth = 559
+      DesignSize = (
+        272
+        104)
+      object btnADOOpen1: TButton
+        Left = 20
+        Top = 0
+        Width = 250
+        Height = 25
+        Anchors = [akTop, akRight]
+        Caption = 'btnADOOpen1'
+        TabOrder = 0
+        OnClick = btnADOOpen1Click
+        ExplicitLeft = 307
+      end
+      object btnADOLoop: TButton
+        Left = 21
+        Top = 31
+        Width = 250
+        Height = 25
+        Anchors = [akTop, akRight]
+        Caption = 'btnADOLoop'
+        TabOrder = 1
+        OnClick = btnADOLoopClick
+        ExplicitLeft = 308
+      end
+      object btnADOLoop2: TButton
+        Left = 21
+        Top = 57
+        Width = 250
+        Height = 25
+        Anchors = [akTop, akRight]
+        Caption = 'btnADOLoop2'
+        TabOrder = 2
+        OnClick = btnADOLoopClick
+        ExplicitLeft = 308
+      end
+    end
+    object DBGrid2: TDBGrid
+      Left = 1
+      Top = 105
+      Width = 272
+      Height = 525
+      Align = alClient
+      DataSource = DataSource2
+      TabOrder = 1
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+    end
   end
-  object rgConnectType: TRadioGroup
-    Left = 24
-    Top = 175
-    Width = 185
-    Height = 105
-    Caption = 'Connection Type'
-    ItemIndex = 0
-    Items.Strings = (
-      'ADOConnection'
-      'FDConnection')
-    TabOrder = 2
-    OnClick = rgConnectTypeClick
+  object ADOQuery1: TADOQuery
+    Parameters = <>
+    Left = 760
+    Top = 184
+  end
+  object DataSource1: TDataSource
+    Left = 192
+    Top = 328
+  end
+  object DataSource2: TDataSource
+    Left = 664
+    Top = 272
+  end
+  object FDQuery1: TFDQuery
+    FetchOptions.AssignedValues = [evRecordCountMode]
+    FetchOptions.RecordCountMode = cmTotal
+    Left = 240
+    Top = 248
   end
 end
