@@ -986,7 +986,13 @@ end;
 
 procedure TNG_ADOConnection.ReleaseConnectionProperties;
 begin
-  FreeAndNil(FConnectionProperties);
+  if Assigned(FConnectionProperties) then
+  begin
+    {$IFNDEF AUTOREFCOUNT}
+    GlobalContainer.Release(FConnectionProperties);
+    {$ENDIF}
+    FConnectionProperties := nil;
+  end;
 end;
 
 procedure TNG_ADOConnection.ReleaseDefaultConnection;

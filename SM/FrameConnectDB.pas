@@ -32,7 +32,7 @@ type
   public
     property DBConnectType: TDBConnectType read GetDBConnectType write SetDBConnectType;
 
-    constructor Create(AOwner : TComponent);
+    constructor Create(AOwner : TComponent); override;
   end;
 
 implementation
@@ -53,8 +53,10 @@ begin
   end;
 end;
 
+
 constructor TDBConnectFrame.Create(AOwner: TComponent);
 begin
+  inherited;
   FDBConnectType := dctFD;
 end;
 

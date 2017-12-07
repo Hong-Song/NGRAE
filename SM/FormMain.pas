@@ -35,7 +35,7 @@ begin
 
   FDBConnectFrame := TDBConnectFrame.Create(Self);
   FDBConnectFrame.Parent := pnDB;
-  pnDB.Align := alClient;
+  FDBConnectFrame.Align := alClient;
 
 end;
 
