@@ -22,7 +22,6 @@ object Form1: TForm1
     Height = 631
     Align = alLeft
     TabOrder = 0
-    ExplicitHeight = 545
     object pnLeftTop: TPanel
       Left = 1
       Top = 1
@@ -86,8 +85,6 @@ object Form1: TForm1
     Height = 631
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 415
-    ExplicitHeight = 545
     object pnRightTop: TPanel
       Left = 1
       Top = 1
@@ -95,7 +92,6 @@ object Form1: TForm1
       Height = 104
       Align = alTop
       TabOrder = 0
-      ExplicitWidth = 559
       DesignSize = (
         272
         104)
@@ -108,7 +104,6 @@ object Form1: TForm1
         Caption = 'btnADOOpen1'
         TabOrder = 0
         OnClick = btnADOOpen1Click
-        ExplicitLeft = 307
       end
       object btnADOLoop: TButton
         Left = 21
@@ -119,7 +114,6 @@ object Form1: TForm1
         Caption = 'btnADOLoop'
         TabOrder = 1
         OnClick = btnADOLoopClick
-        ExplicitLeft = 308
       end
       object btnADOLoop2: TButton
         Left = 21
@@ -130,7 +124,6 @@ object Form1: TForm1
         Caption = 'btnADOLoop2'
         TabOrder = 2
         OnClick = btnADOLoopClick
-        ExplicitLeft = 308
       end
     end
     object DBGrid2: TDBGrid

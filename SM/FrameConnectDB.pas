@@ -59,6 +59,7 @@ end;
 constructor TDBConnectFrame.Create(AOwner: TComponent);
 begin
   inherited;
+  HostName.Text := 'hong-java\SQLEXPRESS,1433';
   FDBConnectType := dctFD;
 end;
 

@@ -116,7 +116,7 @@ begin
   FADODBConnectFrame.btnSQLServerConnectClick(nil);
   ADOQuery1.Connection := TADOConnection(cdpADOGlobal.DBConnection.Connection);
 
-  FSQLString := 'select  *  from TmpTaskList'; //Row_Number() over(order by id) as RowID,
+  FSQLString := 'select  *  from TaskList'; //Row_Number() over(order by id) as RowID,
   FDQuery1.SQL.Text := FSQLString;
   ADOQuery1.SQL.Text := FSQLString;
 
