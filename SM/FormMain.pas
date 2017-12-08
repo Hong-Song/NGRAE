@@ -11,7 +11,7 @@ uses
   FireDAC.Phys, FireDAC.Phys.MSSQL, FireDAC.Phys.MSSQLDef, FireDAC.VCLUI.Wait,
   FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt,
   FireDAC.Comp.DataSet, FireDAC.Comp.Client, Data.Win.ADODB, Vcl.Grids,
-  Vcl.DBGrids;
+  Vcl.DBGrids, NGFDMemTable, Datasnap.DBClient;
 
 type
   TForm1 = class(TForm)
@@ -31,12 +31,26 @@ type
     DataSource1: TDataSource;
     DataSource2: TDataSource;
     FDQuery1: TFDQuery;
+    btnCdsOpen: TButton;
+    cds: TClientDataSet;
+    mtb: TNGFDMemTable;
+    btnMTBOpen: TButton;
+    btnOpen: TButton;
+    btnApplyChanges: TButton;
+    btnAODOpen: TButton;
+    btnCdsApplayChanges: TButton;
     procedure FormCreate(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure btnFDOpen1Click(Sender: TObject);
     procedure btnADOOpen1Click(Sender: TObject);
     procedure btnFDLoopClick(Sender: TObject);
     procedure btnADOLoopClick(Sender: TObject);
+    procedure btnCdsOpenClick(Sender: TObject);
+    procedure btnMTBOpenClick(Sender: TObject);
+    procedure btnOpenClick(Sender: TObject);
+    procedure btnApplyChangesClick(Sender: TObject);
+    procedure btnAODOpenClick(Sender: TObject);
+    procedure btnCdsApplayChangesClick(Sender: TObject);
   private
     FFDDBConnectFrame, FADODBConnectFrame: TDBConnectFrame;
     FSQLString: string;
@@ -77,6 +91,30 @@ begin
   ShowButtonCaption(Sender, ADOQuery1.RecordCount);
 end;
 
+
+procedure TForm1.btnAODOpenClick(Sender: TObject);
+begin
+  cds.CommandText := 'select * from Area';
+//  ADOQuery1.SQL.Text := cds.CommandText;
+//  ADOQuery1.Open;
+
+  cdpADOGlobal.cdsOpen(cds, True, False, False);
+end;
+
+procedure TForm1.btnCdsApplayChangesClick(Sender: TObject);
+begin
+  cdpADOGlobal.cdsApplyUpdatesTable(cds, 'Area', '', '', 'AreaID');
+end;
+
+
+procedure TForm1.btnCdsOpenClick(Sender: TObject);
+begin
+  FStartTime := GetTickCount;
+  cds.CommandText :=  'select *  from TaskList';
+  cdpADOGlobal.cdsOpen(cds, True, False, True);
+  ShowButtonCaption(Sender, cds.RecordCount);
+end;
+
 procedure TForm1.btnFDLoopClick(Sender: TObject);
 begin
   FDQuery1.First;
@@ -92,6 +130,29 @@ begin
   FStartTime := GetTickCount;
   FDQuery1.Open();
   ShowButtonCaption(Sender, FDQuery1.RecordCount);
+end;
+
+procedure TForm1.btnMTBOpenClick(Sender: TObject);
+begin
+  FStartTime := GetTickCount;
+  mtb.SQL.Text :=  'select *  from TaskList';
+  cdpFDGlobal.cdsOpen(mtb, True);
+  ShowButtonCaption(Sender, mtb.RecordCount);
+end;
+
+procedure TForm1.btnOpenClick(Sender: TObject);
+begin
+  mtb.SQL.Text := 'select * from Area';
+  FDQuery1.Open(mtb.SQL.Text);
+
+  mtb.Close;
+  mtb.Data := FDQuery1.Data;
+  mtb.MergeChangeLog;
+end;
+
+procedure TForm1.btnApplyChangesClick(Sender: TObject);
+begin
+  cdpFDGlobal.cdsApplyUpdates(mtb);
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);

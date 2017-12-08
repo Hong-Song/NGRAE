@@ -485,13 +485,13 @@ begin
   end;
   qry.Open;
 
-  if qry.RecordCount > 10000 then
-  begin
-    str := 'SQL statement:' + #13#10 + #13#10 + qry.SQL.Text;
-    if Length(str) > 200 then
-      str := Copy(str, 1, 200) + #13#10 + '...';
-    raise EGlobalException.Create(RS_LargeSizeDataSetErr + #13#10 + #13#10 + Trim(str));
-  end;
+//  if qry.RecordCount > 10000 then
+//  begin
+//    str := 'SQL statement:' + #13#10 + #13#10 + qry.SQL.Text;
+//    if Length(str) > 200 then
+//      str := Copy(str, 1, 200) + #13#10 + '...';
+//    raise EGlobalException.Create(RS_LargeSizeDataSetErr + #13#10 + #13#10 + Trim(str));
+//  end;
 
   cdsEvents := TClientDataSet.Create(nil);   icdsEvents := CreateObjCleaner(cdsEvents);
   try
